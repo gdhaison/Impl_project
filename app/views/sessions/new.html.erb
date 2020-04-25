@@ -1,0 +1,8 @@
+<% if params[:code] %>
+  <h1>You successfully authenticate, click here to continue </h1>
+  <%= link_to "Next", login_path(code: params[:code]), method: :post, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "https://github.com/login/oauth/authorize?scope=user:email&client_id=#{Settings.client_id}", class: "btn btn-block btn-social btn-github" do %>
+    <span class="fas fas-github"></span> Sign in with Github
+  <% end %>
+<% end %>

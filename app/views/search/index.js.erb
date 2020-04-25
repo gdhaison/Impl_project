@@ -1,0 +1,13 @@
+$('#repo').append('<%= j render partial: "repos/repo", collection: @repos %>');
+$('#current_repo').html('<%= last_page(@record_count, @total) %>')
+$('#load_more').on("click", function() {
+  var num = parseInt($(this).attr("page"))
+  var search = $(this).attr("search")
+  var next_page = num + 1 
+  
+  $('#load-btn').html('<center><a page="' + next_page + '" search="gdhaison" id="load_more" class="btn btn-primary" data-remote="true" href="/search?page=' + next_page + '&amp;search=' + search + '">Load more</a></center>')
+});
+
+<% if @record_count >= @total %>
+  $('#load-btn').html('')
+<% end %>

@@ -1,0 +1,14 @@
+$('#user').append('<%= j render partial: "shared/user", collection: @users %>');
+$('#current_count').html('<%= last_page(@record_count, @total) %>')
+$('#load_more_user').on("click", function() {
+  var num = parseInt($(this).attr("page"))
+  var next_page = num + 1 
+  star = $('#star_total').attr("star")
+  
+  $('#load-btn').html('<center><a page="' + next_page + '" id="load_more_user" class="btn btn-primary" data-remote="true" href="/repos?page=' + next_page + '&amp;star=' + star + '&amp;star_url=https%3A%2F%2Fapi.github.com%2Frepos%2Fheartcombo%2Fdevise-encryptable%2Fstargazers">Load more</a></center>')
+
+});
+
+<% if @record_count >= @total %>
+  $('#load-btn').html('')
+<% end %>

@@ -1,0 +1,17 @@
+<div class="form-control"><center><h1>Stargazer list</h1><center></div>
+<div class='info'>
+  <h2 id="current_count"><%= last_page(@record_count, @total) %></h2>
+  <h2>/</h2>
+  <h2><%= @total %> Users</h2>
+</div>
+<div id="user">
+  <%= render partial: "shared/user", collection: @users %>
+</div>
+
+<div id="star_total" star=<%= @total %> >
+</div>
+
+<div id="load-btn">
+  <center><%= link_to "Load more", repos_path(page: 2, star_url: params[:star_url], star: @total),
+    remote: true, page: 2 , id: "load_more_user", class: "btn btn-primary" %></center>
+</div>

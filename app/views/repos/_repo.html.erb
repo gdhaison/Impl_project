@@ -1,0 +1,5 @@
+<div class="form-control">
+  <h1><%= repo["name"] %></h1>
+  <h4><%= link_to "#{repo["stargazers_count"]} stargazers",
+    repos_path(star: repo["stargazers_count"], star_url: repo["stargazers_url"]) %></h4>
+</div>
